@@ -20,7 +20,7 @@ interface EnviromentProps {
     key: string;
     title: string;
 }
-interface PlantsProps {
+interface PlantProps {
     id: string;
     name: string;
     about: string;
@@ -31,10 +31,12 @@ interface PlantsProps {
       times: number;
       repeat_every: string;
 }
+}
 export function PlantSelect(){
 
     const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
     const [plants, setPlants] = useState<PlantProps[]>([]);
+    const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
 
     useEffect(() => {
         async function fetchEnviroment() {
