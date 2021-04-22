@@ -24,7 +24,11 @@ export const PlantCardPrimary = ({data, ...rest} : PlantProps) => {
             style={styles.container}
             {...rest}
         >
-            <SvgFromUri uri={ data.photo} />
+            <SvgFromUri 
+                uri={ data.photo}   
+                width={70}
+                height={70} 
+            />
             <Text style={styles.text}>
                 {data.name}
             </Text>
