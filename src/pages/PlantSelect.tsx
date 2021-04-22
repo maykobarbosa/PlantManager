@@ -49,16 +49,18 @@ export function PlantSelect(){
         }
 
         fetchEnviroment();
-    },[])
+    },[]);
 
     useEffect(() => {
         async function fetchPlants() {
-            const { data } = await api.get('plants');
-            setPlants(data);
+          const { data } = await api.get(`plants?_sort=name&_order=asc`);
+      
+          setPlants(data)
+          setFilteredPlants(data)
         }
-
-        fetchPlants();
-    },[])
+        
+        fetchPlants()
+      }, []);
 
     return (
         <View style={styles.container}>
@@ -86,7 +88,7 @@ export function PlantSelect(){
                         <PlantCardPrimary data={item} />
                     )}
                     showsHorizontalScrollIndicator={false}
-                    horizontal
+                    numColumns={2}
                 />
             </View>
         </View>
